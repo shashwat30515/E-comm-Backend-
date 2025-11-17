@@ -27,7 +27,7 @@ public class ProductController {
         return new ResponseEntity<>(service.getAllProducts(), HttpStatus.OK);
     }
 
-    @GetMapping("/product/{id}")
+    @GetMapping("/product/{productId}")
     public ResponseEntity<Product> getProduct(@PathVariable int id) {
         Product product = service.getProduct(id);
         if (product != null) {
@@ -59,7 +59,7 @@ public class ProductController {
 
     }
 
-    @PutMapping("/product/{id}")
+    @PutMapping("/product/{productId}")
     public ResponseEntity<String> updateProduct(@PathVariable int id, @RequestPart Product product, @RequestPart MultipartFile imageFile) {
 
         Product product1 = null;
@@ -78,7 +78,7 @@ public class ProductController {
     }
 
 
-    @DeleteMapping("/product/{id}")
+    @DeleteMapping("/product/{productId}")
     public ResponseEntity<String> deleteProduct(@PathVariable int id) {
         Product product = service.getProduct(id);
         if (product != null) {
