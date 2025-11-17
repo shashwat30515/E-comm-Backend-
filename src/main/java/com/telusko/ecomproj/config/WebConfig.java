@@ -13,10 +13,12 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("*")              // <- change "*" to your Amplify URL in production
-                        .allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
+                        .allowedOrigins("https://main.d3fg7k1abcd0xf.amplifyapp.com")
+                        .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
+                        .allowCredentials(true);
             }
         };
     }
 }
+
 
