@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 @RestController
 @RequestMapping("/api")
-@CrossOrigin("https://main.d4dlcci0bgt6u.amplifyapp.com")
+@CrossOrigin(origins = "https://main.d4dlcci0bgt6u.amplifyapp.com")
 public class ProductController {
 
     @Autowired
