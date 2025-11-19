@@ -19,7 +19,7 @@ public class ProductService {
         return repo.findAll();
     }
 
-    public Product getProduct(int id) {
+    public Product getProduct(String id) {
         return repo.findById(id).orElse(null);
     }
 
@@ -31,7 +31,7 @@ public class ProductService {
         return repo.save(product);
     }
 
-    public Product updateProduct(int id, Product product, MultipartFile imageFile) throws IOException {
+    public Product updateProduct(String id, Product product, MultipartFile imageFile) throws IOException {
 
         product.setImageName(imageFile.getOriginalFilename());
         product.setImageType(imageFile.getContentType());
@@ -39,7 +39,7 @@ public class ProductService {
         return repo.save(product);
     }
 
-    public void deleteProduct(int id) {
+    public void deleteProduct(String id) {
         repo.deleteById(id);
     }
 

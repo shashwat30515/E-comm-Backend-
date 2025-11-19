@@ -1,17 +1,19 @@
 package com.telusko.ecomproj.repo;
 
 import com.telusko.ecomproj.model.Product;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 import java.util.List;
 
-public interface ProductRepo extends JpaRepository<Product, Integer> {
-    @Query("SELECT p from Product p WHERE " +
-            "LOWER(p.name) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
-            "LOWER(p.description) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
-            "LOWER(p.brand) LIKE LOWER(CONCAT('%', :keyword, '%')) OR " +
-            "LOWER(p.category) LIKE LOWER(CONCAT('%', :keyword, '%'))")
+public interface ProductRepo extends MongoRepository<Product, String> {
+
+    @Query("{ '$or': [ " +
+            "  { 'name': { $regex: ?0, $options: 'i' } }, " +
+            "  { 'description': { $regex: ?0, $options: 'i' } }, " +
+            "  { 'brand': { $regex: ?0, $options: 'i' } }, " +
+            "  { 'category': { $regex: ?0, $options: 'i' } } " +
+            "] }")
     List<Product> searchProducts(String keyword);
 
 }

@@ -1,6 +1,5 @@
 package com.telusko.ecomproj.model;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,15 +7,18 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 import java.util.Date;
 
-@Entity
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
+@Document(collection = "products")   // <-- MongoDB collection
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private String id;               // <-- MongoDB uses String/ObjectId
+
     private String name;
     private String description;
     private String brand;
@@ -28,6 +30,6 @@ public class Product {
 
     private String imageName;
     private String imageType;
-    @Lob
-    private byte[] imageData;
+
+    private byte[] imageData;        // <-- no @Lob for MongoDB
 }
