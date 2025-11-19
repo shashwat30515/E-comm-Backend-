@@ -13,12 +13,15 @@ public class WebConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://main.d3fg7k1abcd0xf.amplifyapp.com")
+                        .allowedOrigins("https://main.d4dlcci0bgt6u.amplifyapp.com")
                         .allowedMethods("GET","POST","PUT","DELETE","OPTIONS")
+                        .allowedHeaders("*")
+                        .exposedHeaders("*")
                         .allowCredentials(true);
             }
         };
     }
 }
+
 
 
