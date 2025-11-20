@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY target/*.jar app.jar
 
-# Render sets the port inside $PORT
+# Render provides PORT dynamically
 ENV PORT=8080
 
 EXPOSE ${PORT}
