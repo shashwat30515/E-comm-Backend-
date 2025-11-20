@@ -11,7 +11,18 @@ import java.io.IOException;
 import java.util.List;
 @RestController
 @RequestMapping("/api")
-@CrossOrigin( origins = "https://main.d4dlcci0bgt6u.amplifyapp.com")
+@CrossOrigin(
+        originPatterns = "https://main.d4dlcci0bgt6u.amplifyapp.com",
+        allowedHeaders = "*",
+        exposedHeaders = "*",
+        methods = {
+                RequestMethod.GET,
+                RequestMethod.POST,
+                RequestMethod.PUT,
+                RequestMethod.DELETE,
+                RequestMethod.OPTIONS
+        }
+)
 public class ProductController {
 
     @Autowired
