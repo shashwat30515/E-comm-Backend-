@@ -1,7 +1,5 @@
 com\telusko\ecomproj\controller\ProductController.class
 com\telusko\ecomproj\service\ProductService.class
-com\telusko\ecomproj\config\WebConfig$1.class
-com\telusko\ecomproj\config\WebConfig.class
 com\telusko\ecomproj\model\Product.class
 com\telusko\ecomproj\repo\ProductRepo.class
 com\telusko\ecomproj\EcomProjApplication.class
