@@ -14,7 +14,7 @@ public class CorsConfig {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                        .allowedOrigins("https://<your-amplify-url>.amplifyapp.com")
+                        .allowedOrigins("https://https://main.d4dlcci0bgt6u.amplifyapp.com")
                         .allowedMethods("GET","POST","PUT","DELETE")
                         .allowedHeaders("*");
             }
